@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para ti ❤️</title>
 
 <style>
@@ -19,23 +19,23 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
-    background:
-        radial-gradient(circle at 20% 20%,#ffb5ca,transparent 30%),
-        radial-gradient(circle at 80% 80%,#c77dff,transparent 35%),
-        linear-gradient(135deg,#4b123c,#b52d69,#ff6f91);
     font-family:Georgia,serif;
+    background:
+        radial-gradient(circle at 20% 20%,#ffb6c9,transparent 28%),
+        radial-gradient(circle at 80% 80%,#c86bca,transparent 30%),
+        linear-gradient(135deg,#ff6689,#c84db5);
 }
 
-/* TEXTO DE ARRIBA */
+/* TEXTO */
 .indicacion{
     position:absolute;
     top:7%;
     width:100%;
     text-align:center;
-    padding:0 20px;
     color:white;
     font-family:Arial,sans-serif;
     font-size:16px;
+    padding:0 15px;
     animation:brillo 2s infinite alternate;
 }
 
@@ -44,11 +44,14 @@ body{
     to{opacity:1;}
 }
 
-/* ESCENA COMPLETA */
+/* ESCENA */
 .escena{
     position:relative;
-    width:320px;
-    height:240px;
+    width:330px;
+    height:440px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 /* =========================
@@ -58,34 +61,42 @@ body{
 .carta{
     position:absolute;
 
-    width:280px;
-    height:360px;
+    width:300px;
+    height:390px;
 
-    left:20px;
-    top:0;
+    padding:30px 24px;
 
-    padding:30px 23px;
+    background:#fffaf2;
 
-    background:#fffaf3;
-    border-radius:6px;
+    border-radius:8px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.3),
+        0 0 20px rgba(255,255,255,.3);
+
+    opacity:0;
+
+    transform:translateY(100px) scale(.75);
+
+    transition:
+        transform 1.3s ease,
+        opacity .8s ease;
 
     z-index:2;
-
-    transform:translateY(65px);
-    transition:1.4s ease;
 
     overflow-y:auto;
 }
 
+/* BORDE DE LA CARTA */
 .carta::before{
     content:"";
 
     position:absolute;
-    inset:9px;
+    inset:10px;
 
-    border:2px solid #efa1b6;
+    border:2px solid #efa2b7;
+
+    border-radius:4px;
 
     pointer-events:none;
 }
@@ -93,31 +104,48 @@ body{
 .contenido{
     position:relative;
     z-index:3;
-
-    opacity:0;
-
-    transition:1s;
 }
 
 .carta h1{
     text-align:center;
     color:#c93663;
-    font-size:27px;
+    font-size:30px;
     margin-bottom:20px;
+}
+
+.decoracion{
+    text-align:center;
+    font-size:25px;
+    margin-bottom:10px;
 }
 
 .carta p{
     color:#633d49;
-    font-size:16px;
+    font-size:17px;
     line-height:1.6;
-    margin-bottom:14px;
+    margin-bottom:15px;
 }
 
 .destacado{
     text-align:center;
-    color:#d93663 !important;
-    font-size:23px !important;
+
+    color:#d82f60 !important;
+
+    font-size:25px !important;
+
     font-weight:bold;
+
+    margin:20px 0 !important;
+}
+
+.firma{
+    text-align:right;
+
+    color:#a84261 !important;
+
+    font-style:italic;
+
+    margin-top:25px;
 }
 
 /* =========================
@@ -127,21 +155,24 @@ body{
 .sobre{
     position:absolute;
 
-    width:320px;
-    height:210px;
+    width:330px;
+    height:215px;
 
     left:0;
-    bottom:0;
-
-    z-index:5;
+    bottom:75px;
 
     cursor:pointer;
 
+    z-index:10;
+
     filter:drop-shadow(0 12px 15px rgba(0,0,0,.35));
 
-    transition:.5s;
+    transition:
+        opacity .7s ease,
+        transform 1s ease;
 }
 
+/* BASE */
 .base{
     position:absolute;
 
@@ -150,28 +181,28 @@ body{
 
     background:#ffdce6;
 
-    border-radius:8px;
+    border-radius:9px;
 
     overflow:hidden;
 }
 
-/* Parte inferior */
+/* TRIÁNGULO INFERIOR */
 .base::before{
     content:"";
 
     position:absolute;
 
-    left:0;
     bottom:0;
+    left:0;
 
-    border-left:160px solid transparent;
-    border-right:160px solid transparent;
-    border-bottom:115px solid #ffc2d1;
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-bottom:118px solid #ffc2d1;
 
     z-index:2;
 }
 
-/* Laterales */
+/* LATERALES */
 .base::after{
     content:"";
 
@@ -180,9 +211,9 @@ body{
     left:0;
     bottom:0;
 
-    border-left:160px solid #ffabc0;
-    border-top:105px solid transparent;
-    border-bottom:105px solid transparent;
+    border-left:165px solid #ffabc0;
+    border-top:108px solid transparent;
+    border-bottom:108px solid transparent;
 
     z-index:3;
 }
@@ -197,18 +228,18 @@ body{
     width:0;
     height:0;
 
-    border-left:160px solid transparent;
-    border-right:160px solid transparent;
-    border-top:115px solid #ff98b0;
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-top:120px solid #ff94ad;
 
     transform-origin:top center;
 
-    transition:1s;
+    transition:1s ease;
 
     z-index:10;
 }
 
-/* SELLO */
+/* CORAZÓN */
 .sello{
     position:absolute;
 
@@ -217,16 +248,19 @@ body{
 
     transform:translate(-50%,-50%);
 
-    font-size:48px;
+    font-size:50px;
 
-    z-index:15;
+    z-index:20;
 
     animation:latir 1.2s infinite;
 
     filter:drop-shadow(0 0 8px #ff477e);
+
+    transition:.5s;
 }
 
 @keyframes latir{
+
     0%,100%{
         transform:translate(-50%,-50%) scale(1);
     }
@@ -237,25 +271,45 @@ body{
 }
 
 /* =========================
-   SOBRE ABIERTO
+   CUANDO SE ABRE
 ========================= */
 
+/* La solapa se levanta */
 .abierto .solapa{
     transform:rotateX(180deg);
 }
 
+/* La carta aparece en el centro */
 .abierto .carta{
-    transform:translateY(-105px);
-}
-
-.abierto .contenido{
     opacity:1;
 
-    transition-delay:.8s;
+    transform:
+        translateY(0)
+        scale(1);
+
+    transition-delay:.7s;
 }
 
+/* El corazón desaparece */
 .abierto .sello{
     opacity:0;
+}
+
+/*
+   MUY IMPORTANTE:
+   EL SOBRE DESAPARECE
+   después de abrirse
+*/
+.abierto .sobre{
+    opacity:0;
+
+    transform:
+        translateY(40px)
+        scale(.8);
+
+    pointer-events:none;
+
+    transition-delay:1.4s;
 }
 
 /* =========================
@@ -267,9 +321,9 @@ body{
 
     bottom:0;
 
-    pointer-events:none;
-
     z-index:50;
+
+    pointer-events:none;
 
     animation:subir 5s linear forwards;
 }
@@ -281,8 +335,8 @@ body{
 
         transform:
             translateY(0)
-            scale(.5)
-            rotate(0);
+            scale(.4)
+            rotate(0deg);
     }
 
     15%{
@@ -294,19 +348,19 @@ body{
 
         transform:
             translateY(-110dvh)
-            scale(1.4)
+            scale(1.5)
             rotate(360deg);
     }
 }
 
 /* =========================
-   CELULARES PEQUEÑOS
+   CELULARES
 ========================= */
 
 @media(max-width:380px){
 
     .escena{
-        transform:scale(.85);
+        transform:scale(.86);
     }
 
     .indicacion{
@@ -314,10 +368,11 @@ body{
     }
 }
 
-@media(max-height:650px){
+/* CELULAR CON POCA ALTURA */
+@media(max-height:700px){
 
     .escena{
-        transform:scale(.78);
+        transform:scale(.75);
     }
 
     .indicacion{
@@ -329,7 +384,7 @@ body{
 @media(max-width:340px){
 
     .escena{
-        transform:scale(.72);
+        transform:scale(.70);
     }
 }
 </style>
@@ -344,12 +399,21 @@ body{
 
 <div class="escena" id="escena">
 
-    <!-- CARTA -->
+    <!-- =====================
+         CARTA
+    ====================== -->
+
     <div class="carta">
 
         <div class="contenido">
 
-            <h1>Para ti ❤️</h1>
+            <div class="decoracion">
+                💕 ❤️ 💕
+            </div>
+
+            <h1>
+                Para ti ❤️
+            </h1>
 
             <p>
                 Querida tú:
@@ -384,20 +448,27 @@ body{
 
             <p>
                 Espero que cuando leas esta carta
-                puedas sentir un poquito de todo
-                el cariño que llevo dentro.
+                puedas sentir todo el cariño que
+                llevo dentro.
             </p>
 
-            <p style="text-align:right;font-style:italic;">
+            <p class="firma">
                 Con todo mi cariño ❤️
             </p>
+
+            <div class="decoracion">
+                💗 💖 💗
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- SOBRE -->
+    <!-- =====================
+         SOBRE
+    ====================== -->
+
     <div class="sobre">
 
         <div class="base"></div>
@@ -417,7 +488,7 @@ body{
 
 const escena = document.getElementById("escena");
 
-escena.addEventListener("click",function(){
+escena.addEventListener("click", function(){
 
     if(document.body.classList.contains("abierto")){
         return;
@@ -428,12 +499,12 @@ escena.addEventListener("click",function(){
 
     /* CORAZONES AL ABRIR */
 
-    for(let i=0;i<30;i++){
+    for(let i=0; i<35; i++){
 
         const corazon =
             document.createElement("div");
 
-        const emojis=[
+        const emojis = [
             "❤️",
             "💕",
             "💗",
@@ -441,27 +512,27 @@ escena.addEventListener("click",function(){
             "💘"
         ];
 
-        corazon.className="corazon";
+        corazon.className = "corazon";
 
         corazon.innerHTML =
             emojis[
                 Math.floor(
-                    Math.random()*emojis.length
+                    Math.random() * emojis.length
                 )
             ];
 
         corazon.style.left =
-            Math.random()*100+"vw";
+            Math.random() * 100 + "vw";
 
         corazon.style.fontSize =
-            (18+Math.random()*24)+"px";
+            (18 + Math.random() * 25) + "px";
 
         corazon.style.animationDuration =
-            (4+Math.random()*3)+"s";
+            (4 + Math.random() * 3) + "s";
 
         document.body.appendChild(corazon);
 
-        setTimeout(()=>{
+        setTimeout(function(){
             corazon.remove();
         },7000);
     }
