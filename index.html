@@ -3,130 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para ti ❤️</title>
 
 <style>
+
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html,
 body{
     width:100%;
-    height:100dvh;
+    height:100%;
+}
+
+body{
+    min-height:100dvh;
     overflow:hidden;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     font-family:Georgia,serif;
+
     background:
-        radial-gradient(circle at 20% 20%,#ffb6c9,transparent 28%),
-        radial-gradient(circle at 80% 80%,#c86bca,transparent 30%),
-        linear-gradient(135deg,#ff6689,#c84db5);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,190,210,.8),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(210,120,220,.7),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #ff6689,
+            #d04cb5
+        );
 }
 
-/* TEXTO */
+
+/* =========================
+   INDICACIÓN
+========================= */
+
 .indicacion{
-    position:absolute;
+    position:fixed;
+
     top:7%;
+
     width:100%;
+
     text-align:center;
-    color:white;
-    font-family:Arial,sans-serif;
-    font-size:16px;
+
     padding:0 15px;
+
+    color:white;
+
+    font-family:Arial,sans-serif;
+
+    font-size:17px;
+
+    z-index:100;
+
     animation:brillo 2s infinite alternate;
 }
 
 @keyframes brillo{
-    from{opacity:.55;}
-    to{opacity:1;}
+
+    from{
+        opacity:.55;
+    }
+
+    to{
+        opacity:1;
+    }
+
 }
 
-/* ESCENA */
+
+/* =========================
+   ESCENA
+========================= */
+
 .escena{
+
     position:relative;
+
     width:330px;
     height:440px;
+
     display:flex;
+
     justify-content:center;
     align-items:center;
 }
+
 
 /* =========================
    CARTA
 ========================= */
 
 .carta{
+
     position:absolute;
 
     width:300px;
+
     height:390px;
 
-    padding:30px 24px;
+    left:15px;
 
-    background:#fffaf2;
+    top:25px;
+
+    padding:30px 25px;
+
+    background:#fffaf3;
 
     border-radius:8px;
 
     box-shadow:
-        0 15px 35px rgba(0,0,0,.3),
-        0 0 20px rgba(255,255,255,.3);
+        0 15px 40px rgba(0,0,0,.3);
+
+    overflow-y:auto;
 
     opacity:0;
 
-    transform:translateY(100px) scale(.75);
+    transform:
+        translateY(80px)
+        scale(.75);
 
     transition:
-        transform 1.3s ease,
-        opacity .8s ease;
+        opacity .8s ease,
+        transform 1.2s ease;
 
     z-index:2;
-
-    overflow-y:auto;
 }
 
-/* BORDE DE LA CARTA */
+
+/* BORDE */
 .carta::before{
+
     content:"";
 
     position:absolute;
+
     inset:10px;
 
-    border:2px solid #efa2b7;
+    border:2px solid #efa1b6;
 
-    border-radius:4px;
+    border-radius:5px;
 
     pointer-events:none;
 }
 
+
+/* CONTENIDO */
 .contenido{
+
     position:relative;
+
     z-index:3;
+
 }
+
+
+/* TÍTULO */
 
 .carta h1{
+
     text-align:center;
+
     color:#c93663;
+
     font-size:30px;
-    margin-bottom:20px;
+
+    margin-bottom:18px;
+
 }
+
+
+/* DECORACIÓN */
 
 .decoracion{
+
     text-align:center;
+
     font-size:25px;
+
     margin-bottom:10px;
+
 }
+
+
+/* TEXTO */
 
 .carta p{
+
     color:#633d49;
+
     font-size:17px;
+
     line-height:1.6;
+
     margin-bottom:15px;
+
 }
 
+
+/* FRASE PRINCIPAL */
+
 .destacado{
+
     text-align:center;
 
     color:#d82f60 !important;
@@ -136,9 +234,14 @@ body{
     font-weight:bold;
 
     margin:20px 0 !important;
+
 }
 
+
+/* FIRMA */
+
 .firma{
+
     text-align:right;
 
     color:#a84261 !important;
@@ -146,37 +249,50 @@ body{
     font-style:italic;
 
     margin-top:25px;
+
 }
+
 
 /* =========================
    SOBRE
 ========================= */
 
 .sobre{
+
     position:absolute;
 
     width:330px;
+
     height:215px;
 
     left:0;
-    bottom:75px;
 
-    cursor:pointer;
+    bottom:75px;
 
     z-index:10;
 
-    filter:drop-shadow(0 12px 15px rgba(0,0,0,.35));
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 12px 15px
+            rgba(0,0,0,.35)
+        );
 
     transition:
-        opacity .7s ease,
-        transform 1s ease;
+        opacity .5s ease,
+        transform .8s ease;
 }
 
+
 /* BASE */
+
 .base{
+
     position:absolute;
 
     width:100%;
+
     height:100%;
 
     background:#ffdce6;
@@ -184,69 +300,102 @@ body{
     border-radius:9px;
 
     overflow:hidden;
+
 }
 
+
 /* TRIÁNGULO INFERIOR */
+
 .base::before{
+
     content:"";
 
     position:absolute;
 
-    bottom:0;
     left:0;
 
+    bottom:0;
+
     border-left:165px solid transparent;
+
     border-right:165px solid transparent;
+
     border-bottom:118px solid #ffc2d1;
 
     z-index:2;
+
 }
 
-/* LATERALES */
+
+/* LADO IZQUIERDO */
+
 .base::after{
+
     content:"";
 
     position:absolute;
 
     left:0;
+
     bottom:0;
 
     border-left:165px solid #ffabc0;
+
     border-top:108px solid transparent;
+
     border-bottom:108px solid transparent;
 
     z-index:3;
+
 }
 
-/* SOLAPA */
+
+/* =========================
+   SOLAPA
+========================= */
+
 .solapa{
+
     position:absolute;
 
     top:0;
+
     left:0;
 
     width:0;
+
     height:0;
 
     border-left:165px solid transparent;
+
     border-right:165px solid transparent;
+
     border-top:120px solid #ff94ad;
 
     transform-origin:top center;
 
-    transition:1s ease;
+    transition:
+        transform 1s ease;
 
     z-index:10;
+
 }
 
-/* CORAZÓN */
+
+/* =========================
+   CORAZÓN DEL SOBRE
+========================= */
+
 .sello{
+
     position:absolute;
 
     left:50%;
+
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     font-size:50px;
 
@@ -254,104 +403,149 @@ body{
 
     animation:latir 1.2s infinite;
 
-    filter:drop-shadow(0 0 8px #ff477e);
+    filter:
+        drop-shadow(
+            0 0 8px
+            #ff477e
+        );
 
-    transition:.5s;
+    transition:
+        opacity .4s ease;
+
 }
+
 
 @keyframes latir{
 
-    0%,100%{
-        transform:translate(-50%,-50%) scale(1);
+    0%,
+    100%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
     }
 
     50%{
-        transform:translate(-50%,-50%) scale(1.18);
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.18);
+
     }
+
 }
+
 
 /* =========================
-   CUANDO SE ABRE
+   ABRIR SOBRE
 ========================= */
 
-/* La solapa se levanta */
-.abierto .solapa{
-    transform:rotateX(180deg);
+
+/* SOLAPA SE ABRE */
+
+.abriendo .solapa{
+
+    transform:
+        rotateX(180deg);
+
 }
 
-/* La carta aparece en el centro */
-.abierto .carta{
+
+/* CARTA APARECE */
+
+.abriendo .carta{
+
     opacity:1;
 
     transform:
         translateY(0)
         scale(1);
 
-    transition-delay:.7s;
+    transition-delay:.6s;
+
 }
 
-/* El corazón desaparece */
-.abierto .sello{
+
+/* CORAZÓN DESAPARECE */
+
+.abriendo .sello{
+
     opacity:0;
+
 }
 
-/*
-   MUY IMPORTANTE:
-   EL SOBRE DESAPARECE
-   después de abrirse
-*/
-.abierto .sobre{
+
+/* SOBRE DESAPARECE */
+
+.sobre.eliminado{
+
     opacity:0;
 
     transform:
-        translateY(40px)
-        scale(.8);
+        scale(.6)
+        translateY(40px);
 
     pointer-events:none;
 
-    transition-delay:1.4s;
 }
 
+
 /* =========================
-   CORAZONES
+   CORAZONES FLOTANTES
 ========================= */
 
 .corazon{
-    position:absolute;
 
-    bottom:0;
+    position:fixed;
 
-    z-index:50;
+    bottom:-40px;
+
+    z-index:200;
 
     pointer-events:none;
 
-    animation:subir 5s linear forwards;
+    animation:
+        subir
+        5s
+        linear
+        forwards;
+
 }
+
 
 @keyframes subir{
 
     0%{
+
         opacity:0;
 
         transform:
             translateY(0)
             scale(.4)
             rotate(0deg);
+
     }
 
     15%{
+
         opacity:1;
+
     }
 
     100%{
+
         opacity:0;
 
         transform:
             translateY(-110dvh)
             scale(1.5)
             rotate(360deg);
+
     }
+
 }
+
 
 /* =========================
    CELULARES
@@ -360,44 +554,76 @@ body{
 @media(max-width:380px){
 
     .escena{
+
         transform:scale(.86);
+
     }
 
     .indicacion{
-        font-size:14px;
+
+        font-size:15px;
+
     }
+
 }
 
-/* CELULAR CON POCA ALTURA */
+
+/* CELULARES BAJITOS */
+
 @media(max-height:700px){
 
     .escena{
+
         transform:scale(.75);
+
     }
 
     .indicacion{
+
         top:4%;
+
     }
+
 }
 
+
 /* CELULARES MUY PEQUEÑOS */
+
 @media(max-width:340px){
 
     .escena{
-        transform:scale(.70);
+
+        transform:scale(.68);
+
     }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     TEXTO
+========================= -->
+
 <div class="indicacion">
+
     💌 Toca el sobre para abrir tu carta 💌
+
 </div>
 
 
+<!-- =========================
+     ESCENA
+========================= -->
+
 <div class="escena" id="escena">
+
 
     <!-- =====================
          CARTA
@@ -407,139 +633,294 @@ body{
 
         <div class="contenido">
 
+
             <div class="decoracion">
+
                 💕 ❤️ 💕
+
             </div>
 
+
             <h1>
+
                 Para ti ❤️
+
             </h1>
 
-            <p>
-                Querida tú:
-            </p>
 
             <p>
+
+                Querida tú:
+
+            </p>
+
+
+            <p>
+
                 Quiero decirte algo que sale
                 directamente de mi corazón...
+
             </p>
+
 
             <p class="destacado">
+
                 Yo te amo. ❤️
+
             </p>
 
+
             <p>
+
                 Y yo sé que ya me gané tu corazón,
                 poquito a poquito, con cada palabra,
                 cada sonrisa y cada momento que
                 hemos compartido.
+
             </p>
 
+
             <p>
+
                 Me encanta saber que existe un lugar
                 especial para mí en tu corazón. 💕
+
             </p>
 
+
             <p>
+
                 Solo quiero seguir compartiendo
                 momentos bonitos contigo y demostrarte
                 lo mucho que significas para mí.
+
             </p>
 
+
             <p>
+
                 Espero que cuando leas esta carta
                 puedas sentir todo el cariño que
                 llevo dentro.
+
             </p>
+
 
             <p class="firma">
+
                 Con todo mi cariño ❤️
+
             </p>
 
+
             <div class="decoracion">
+
                 💗 💖 💗
+
             </div>
+
 
         </div>
 
     </div>
+
 
 
     <!-- =====================
          SOBRE
     ====================== -->
 
-    <div class="sobre">
+    <div class="sobre" id="sobre">
+
 
         <div class="base"></div>
 
+
         <div class="solapa"></div>
 
+
         <div class="sello">
+
             ❤️
+
         </div>
 
+
     </div>
+
 
 </div>
 
 
+
 <script>
 
-const escena = document.getElementById("escena");
+/* =========================
+   ELEMENTOS
+========================= */
 
-escena.addEventListener("click", function(){
+const escena =
+    document.getElementById("escena");
 
-    if(document.body.classList.contains("abierto")){
-        return;
+const sobre =
+    document.getElementById("sobre");
+
+
+/* =========================
+   ABRIR CARTA
+========================= */
+
+sobre.addEventListener(
+    "click",
+    function(){
+
+        /*
+           Evita que se abra
+           más de una vez
+        */
+
+        if(
+            sobre.classList.contains(
+                "eliminado"
+            )
+        ){
+
+            return;
+
+        }
+
+
+        /*
+           Inicia la animación
+        */
+
+        document.body.classList.add(
+            "abriendo"
+        );
+
+
+        /*
+           Crear corazones
+        */
+
+        crearCorazones();
+
+
+        /*
+           Esperar a que
+           termine la animación
+        */
+
+        setTimeout(
+            function(){
+
+                /*
+                   El sobre se elimina
+                   completamente
+                */
+
+                sobre.remove();
+
+            },
+            1500
+        );
+
     }
+);
 
-    document.body.classList.add("abierto");
 
 
-    /* CORAZONES AL ABRIR */
+/* =========================
+   CORAZONES
+========================= */
 
-    for(let i=0; i<35; i++){
+function crearCorazones(){
+
+    const emojis = [
+
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘"
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < 35;
+        i++
+    ){
 
         const corazon =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
-        const emojis = [
-            "❤️",
-            "💕",
-            "💗",
-            "💖",
-            "💘"
-        ];
 
-        corazon.className = "corazon";
+        corazon.className =
+            "corazon";
 
-        corazon.innerHTML =
+
+        corazon.textContent =
             emojis[
                 Math.floor(
-                    Math.random() * emojis.length
+                    Math.random()
+                    *
+                    emojis.length
                 )
             ];
 
+
         corazon.style.left =
-            Math.random() * 100 + "vw";
+            Math.random()
+            *
+            100
+            +
+            "vw";
+
 
         corazon.style.fontSize =
-            (18 + Math.random() * 25) + "px";
+            (
+                18
+                +
+                Math.random()*25
+            )
+            +
+            "px";
+
 
         corazon.style.animationDuration =
-            (4 + Math.random() * 3) + "s";
+            (
+                4
+                +
+                Math.random()*3
+            )
+            +
+            "s";
 
-        document.body.appendChild(corazon);
 
-        setTimeout(function(){
-            corazon.remove();
-        },7000);
+        document.body.appendChild(
+            corazon
+        );
+
+
+        setTimeout(
+            function(){
+
+                corazon.remove();
+
+            },
+            7000
+        );
+
     }
 
-});
+}
 
 </script>
+
 
 </body>
 </html>
