@@ -3,222 +3,162 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para ti ❤️</title>
+<title>Una carta para ti ❤️</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
 body{
     min-height:100vh;
-    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
+    padding:20px;
+    background:linear-gradient(135deg,#ff758c,#ffb6c1,#ff4f81);
     font-family:Georgia,serif;
-    background:
-        radial-gradient(circle at 20% 20%,#ffb6d5,transparent 30%),
-        radial-gradient(circle at 80% 80%,#c58cff,transparent 30%),
-        linear-gradient(135deg,#18001f,#5b164f,#ff4f81);
+    overflow:auto;
 }
 
-/* Estrellas */
-.estrella{
-    position:absolute;
-    color:white;
-    font-size:5px;
-    animation:brillar 2s infinite alternate;
-}
-
-@keyframes brillar{
-    from{opacity:.2;transform:scale(.7);}
-    to{opacity:1;transform:scale(1.5);}
-}
-
-/* Carta */
 .carta{
+    width:100%;
+    max-width:450px;
+    min-height:560px;
+    padding:45px 30px;
+    background:#fffaf5;
+    border-radius:8px;
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
     position:relative;
-    width:88%;
-    max-width:430px;
-    padding:35px 25px;
-    text-align:center;
-    border-radius:30px;
-    background:rgba(255,255,255,.13);
-    border:1px solid rgba(255,255,255,.35);
-    box-shadow:
-        0 0 30px rgba(255,105,180,.4),
-        inset 0 0 30px rgba(255,255,255,.08);
-    backdrop-filter:blur(15px);
-    animation:entrada 1.8s ease;
-    z-index:5;
+    transform:rotate(-1deg);
+    animation:entrar 1.5s ease;
 }
 
-@keyframes entrada{
-    from{
-        opacity:0;
-        transform:translateY(50px) scale(.8);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+.carta:before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:2px solid #f3a2b8;
+    pointer-events:none;
+}
+
+.contenido{
+    position:relative;
+    z-index:2;
 }
 
 .corazon{
-    font-size:75px;
-    animation:latido 1.2s infinite;
-    filter:drop-shadow(0 0 15px #ff477e);
-}
-
-@keyframes latido{
-    0%,100%{transform:scale(1);}
-    15%{transform:scale(1.18);}
-    30%{transform:scale(1);}
-    45%{transform:scale(1.18);}
+    text-align:center;
+    font-size:60px;
+    animation:latir 1.2s infinite;
 }
 
 h1{
-    margin:15px 0;
-    color:white;
-    font-size:38px;
-    text-shadow:0 0 15px #ff8fb3;
+    text-align:center;
+    color:#c73d68;
+    font-size:32px;
+    margin:15px 0 30px;
 }
 
-.mensaje{
-    color:white;
-    font-size:20px;
-    line-height:1.7;
-    text-shadow:0 2px 8px rgba(0,0,0,.4);
+p{
+    color:#633d49;
+    font-size:19px;
+    line-height:1.8;
+    margin-bottom:18px;
 }
 
-.resaltado{
-    color:#ffd6e5;
+.destacado{
+    text-align:center;
+    color:#d93663;
     font-size:24px;
     font-weight:bold;
 }
 
 .firma{
-    margin-top:22px;
-    color:#ffe5ef;
-    font-size:18px;
+    text-align:right;
+    margin-top:35px;
+    color:#a84261;
+    font-size:20px;
     font-style:italic;
 }
 
-/* Corazones */
-.corazon-flotante{
-    position:absolute;
-    bottom:-50px;
-    pointer-events:none;
-    animation:subir 6s linear forwards;
-    z-index:2;
+.corazones{
+    text-align:center;
+    margin-top:20px;
+    font-size:25px;
 }
 
-@keyframes subir{
-    0%{
-        transform:translateY(0) scale(.5) rotate(0);
+@keyframes entrar{
+    from{
         opacity:0;
+        transform:translateY(50px) rotate(-5deg);
     }
-    15%{opacity:1;}
-    100%{
-        transform:translateY(-110vh) scale(1.4) rotate(360deg);
-        opacity:0;
+    to{
+        opacity:1;
+        transform:translateY(0) rotate(-1deg);
     }
 }
 
-/* Indicador */
-.toque{
-    position:absolute;
-    bottom:20px;
-    color:rgba(255,255,255,.75);
-    font-family:Arial,sans-serif;
-    font-size:13px;
-    animation:desaparecer 5s forwards;
-}
-
-@keyframes desaparecer{
-    0%,70%{opacity:1;}
-    100%{opacity:0;}
+@keyframes latir{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.2);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="estrella" style="top:10%;left:15%;">✦</div>
-<div class="estrella" style="top:20%;left:80%;">✦</div>
-<div class="estrella" style="top:70%;left:10%;">✦</div>
-<div class="estrella" style="top:80%;left:85%;">✦</div>
-<div class="estrella" style="top:35%;left:92%;">✦</div>
-<div class="estrella" style="top:55%;left:5%;">✦</div>
-
 <div class="carta">
+    <div class="contenido">
 
-    <div class="corazon">❤️</div>
+        <div class="corazon">❤️</div>
 
-    <h1>Yo te amo</h1>
-
-    <div class="mensaje">
-        <p>
-            Tal vez no existan palabras suficientes
-            para explicar todo lo que siento por ti...
-        </p>
-
-        <br>
-
-        <p class="resaltado">
-            Pero yo sé que ya me gané tu corazón. ❤️
-        </p>
-
-        <br>
+        <h1>Para ti, con todo mi corazón</h1>
 
         <p>
-            Poco a poco fui encontrando un lugar
-            especial en tu corazón,
-            y ahora solo quiero seguir construyendo
-            momentos bonitos contigo. 💕
+            Querida tú:
+        </p>
+
+        <p>
+            Quiero decirte algo que quizá ya puedas imaginar,
+            pero que nunca me cansaría de decirte...
+        </p>
+
+        <p class="destacado">
+            Yo te amo. ❤️
+        </p>
+
+        <p>
+            Y yo sé que ya me gané tu corazón poquito a poquito.
+            No fue de un día para otro, sino con cada palabra,
+            cada sonrisa y cada momento que hemos compartido.
+        </p>
+
+        <p>
+            Solo quiero que sepas que ocupas un lugar muy especial
+            en mi corazón y que me encanta poder hacerte sonreír.
+            💕
+        </p>
+
+        <p>
+            Tal vez esta carta no pueda decir todo lo que siento,
+            pero sí puede recordarte algo:
+            <b>me importas muchísimo.</b>
         </p>
 
         <div class="firma">
-            Con todo mi corazón... ❤️
+            Con mucho cariño,<br>
+            alguien que te ama ❤️
         </div>
+
+        <div class="corazones">
+            💕 💗 💖 💗 💕
+        </div>
+
     </div>
-
 </div>
-
-<div class="toque">
-    ✨ Toca la pantalla ✨
-</div>
-
-<script>
-document.addEventListener("click", function(e){
-
-    for(let i=0;i<7;i++){
-
-        const corazon = document.createElement("div");
-
-        const corazones = ["❤️","💕","💗","💖","💘"];
-
-        corazon.className = "corazon-flotante";
-
-        corazon.innerHTML =
-            corazones[Math.floor(Math.random()*corazones.length)];
-
-        corazon.style.left = e.clientX + (Math.random()*80-40) + "px";
-        corazon.style.bottom = (window.innerHeight-e.clientY) + "px";
-        corazon.style.fontSize = (18+Math.random()*25) + "px";
-        corazon.style.animationDuration = (4+Math.random()*3) + "s";
-
-        document.body.appendChild(corazon);
-
-        setTimeout(()=>{
-            corazon.remove();
-        },7000);
-    }
-});
-</script>
 
 </body>
 </html>
