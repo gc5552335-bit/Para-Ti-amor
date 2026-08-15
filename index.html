@@ -1,246 +1,224 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Para ti ✨</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
 
-    body {
-      background: linear-gradient(135deg, #0f0c1b, #200b26, #0d1b2a);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-      padding: 20px;
-    }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* Fondo de corazones flotantes */
-    .heart-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Georgia,serif;
+    background:
+        radial-gradient(circle at 20% 20%,#ffb6d5,transparent 30%),
+        radial-gradient(circle at 80% 80%,#c58cff,transparent 30%),
+        linear-gradient(135deg,#18001f,#5b164f,#ff4f81);
+}
 
-    .floating-heart {
-      position: absolute;
-      color: rgba(255, 105, 180, 0.4);
-      font-size: 20px;
-      animation: float 6s linear infinite;
-      bottom: -30px;
-    }
+/* Estrellas */
+.estrella{
+    position:absolute;
+    color:white;
+    font-size:5px;
+    animation:brillar 2s infinite alternate;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-105vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
+@keyframes brillar{
+    from{opacity:.2;transform:scale(.7);}
+    to{opacity:1;transform:scale(1.5);}
+}
 
-    /* Tarjeta principal */
-    .card {
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 24px;
-      padding: 35px 25px;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-      z-index: 1;
-      position: relative;
-    }
+/* Carta */
+.carta{
+    position:relative;
+    width:88%;
+    max-width:430px;
+    padding:35px 25px;
+    text-align:center;
+    border-radius:30px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.35);
+    box-shadow:
+        0 0 30px rgba(255,105,180,.4),
+        inset 0 0 30px rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
+    animation:entrada 1.8s ease;
+    z-index:5;
+}
 
-    .badge {
-      display: inline-block;
-      background: rgba(255, 77, 109, 0.2);
-      border: 1px solid rgba(255, 77, 109, 0.5);
-      color: #ff4d6d;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
+@keyframes entrada{
+    from{
+        opacity:0;
+        transform:translateY(50px) scale(.8);
     }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
 
-    .divider {
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #ff4d6d, transparent);
-      margin: 20px 0;
-      border: none;
-    }
+.corazon{
+    font-size:75px;
+    animation:latido 1.2s infinite;
+    filter:drop-shadow(0 0 15px #ff477e);
+}
 
-    /* Avatar Interactivo */
-    .avatar-container {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 15px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: 2px solid #ff4d6d;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
+@keyframes latido{
+    0%,100%{transform:scale(1);}
+    15%{transform:scale(1.18);}
+    30%{transform:scale(1);}
+    45%{transform:scale(1.18);}
+}
 
-    .avatar-container:hover {
-      transform: scale(1.08);
-    }
+h1{
+    margin:15px 0;
+    color:white;
+    font-size:38px;
+    text-shadow:0 0 15px #ff8fb3;
+}
 
-    .avatar-svg {
-      width: 50px;
-      height: 50px;
-      fill: #ff758f;
-    }
+.mensaje{
+    color:white;
+    font-size:20px;
+    line-height:1.7;
+    text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
 
-    /* Mensajes */
-    .main-text {
-      font-size: 1.4rem;
-      font-weight: 700;
-      line-height: 1.4;
-      color: #ffffff;
-      margin-top: 10px;
-    }
+.resaltado{
+    color:#ffd6e5;
+    font-size:24px;
+    font-weight:bold;
+}
 
-    .highlight {
-      color: #ff4d6d;
-      text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
-    }
+.firma{
+    margin-top:22px;
+    color:#ffe5ef;
+    font-size:18px;
+    font-style:italic;
+}
 
-    .secret-box {
-      margin-top: 25px;
-      padding: 15px;
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 16px;
-      border: 1px dashed rgba(255, 255, 255, 0.2);
-    }
+/* Corazones */
+.corazon-flotante{
+    position:absolute;
+    bottom:-50px;
+    pointer-events:none;
+    animation:subir 6s linear forwards;
+    z-index:2;
+}
 
-    .reveal-btn {
-      background: linear-gradient(45deg, #ff4d6d, #ff758f);
-      border: none;
-      color: white;
-      padding: 12px 24px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 8px 15px rgba(255, 77, 109, 0.3);
-      transition: all 0.3s ease;
+@keyframes subir{
+    0%{
+        transform:translateY(0) scale(.5) rotate(0);
+        opacity:0;
     }
+    15%{opacity:1;}
+    100%{
+        transform:translateY(-110vh) scale(1.4) rotate(360deg);
+        opacity:0;
+    }
+}
 
-    .reveal-btn:active {
-      transform: scale(0.96);
-    }
+/* Indicador */
+.toque{
+    position:absolute;
+    bottom:20px;
+    color:rgba(255,255,255,.75);
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    animation:desaparecer 5s forwards;
+}
 
-    .hidden-message {
-      display: none;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #e0e0e0;
-      line-height: 1.5;
-      animation: fadeIn 0.8s forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+@keyframes desaparecer{
+    0%,70%{opacity:1;}
+    100%{opacity:0;}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Contenedor para animación de corazones -->
-  <div class="heart-bg" id="heartBg"></div>
+<div class="estrella" style="top:10%;left:15%;">✦</div>
+<div class="estrella" style="top:20%;left:80%;">✦</div>
+<div class="estrella" style="top:70%;left:10%;">✦</div>
+<div class="estrella" style="top:80%;left:85%;">✦</div>
+<div class="estrella" style="top:35%;left:92%;">✦</div>
+<div class="estrella" style="top:55%;left:5%;">✦</div>
 
-  <div class="card">
-    <div class="badge">Sin rodeos ✨</div>
-    
-    <!-- Avatar de gatito interactivo -->
-    <div class="avatar-container" onclick="createHeartBurst(event)">
-      <svg class="avatar-svg" viewBox="0 0 24 24">
-        <path d="M12 2C6.48 2 2 6.48 2 12c0 3.69 2.47 6.86 6 8.25V17c0-.55.45-1 1-1s1 .45 1 1v3.95c.64.03 1.31.05 2 .05s1.36-.02 2-.05V17c0-.55.45-1 1-1s1 .45 1 1v3.25c3.53-1.39 6-4.56 6-8.25 0-5.52-4.48-10-10-10zm-3 7.5c.83 0 1.5.67 1.5 1.5S9.83 12.5 9 12.5 7.5 11.83 7.5 11 8.17 9.5 9 9.5zm6 0c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5z"/>
-      </svg>
+<div class="carta">
+
+    <div class="corazon">❤️</div>
+
+    <h1>Yo te amo</h1>
+
+    <div class="mensaje">
+        <p>
+            Tal vez no existan palabras suficientes
+            para explicar todo lo que siento por ti...
+        </p>
+
+        <br>
+
+        <p class="resaltado">
+            Pero yo sé que ya me gané tu corazón. ❤️
+        </p>
+
+        <br>
+
+        <p>
+            Poco a poco fui encontrando un lugar
+            especial en tu corazón,
+            y ahora solo quiero seguir construyendo
+            momentos bonitos contigo. 💕
+        </p>
+
+        <div class="firma">
+            Con todo mi corazón... ❤️
+        </div>
     </div>
 
-    <p class="main-text">
-      Hay cosas que no hace falta darles tantas vueltas, <span class="highlight">así de simple</span>.
-    </p>
+</div>
 
-    <div class="divider"></div>
+<div class="toque">
+    ✨ Toca la pantalla ✨
+</div>
 
-    <div class="secret-box">
-      <button class="reveal-btn" id="revealBtn" onclick="revealTruth()">Toca para leer la verdad</button>
-      
-      <div class="hidden-message" id="secretText">
-        <p>Yo te amo.</p>
-        <div class="divider" style="margin: 12px 0;"></div>
-        <p style="color: #ff758f;">Y yo sé que ya estoy en tu corazón. ❤️‍🔥</p>
-      </div>
-    </div>
-  </div>
+<script>
+document.addEventListener("click", function(e){
 
-  <script>
-    // Generador continuo de corazones flotantes
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.classList.add('floating-heart');
-      heart.innerHTML = '✨';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = Math.random() * 3 + 4 + 's';
-      heart.style.fontSize = Math.random() * 12 + 16 + 'px';
-      
-      document.getElementById('heartBg').appendChild(heart);
+    for(let i=0;i<7;i++){
 
-      setTimeout(() => {
-        heart.remove();
-      }, 7000);
+        const corazon = document.createElement("div");
+
+        const corazones = ["❤️","💕","💗","💖","💘"];
+
+        corazon.className = "corazon-flotante";
+
+        corazon.innerHTML =
+            corazones[Math.floor(Math.random()*corazones.length)];
+
+        corazon.style.left = e.clientX + (Math.random()*80-40) + "px";
+        corazon.style.bottom = (window.innerHeight-e.clientY) + "px";
+        corazon.style.fontSize = (18+Math.random()*25) + "px";
+        corazon.style.animationDuration = (4+Math.random()*3) + "s";
+
+        document.body.appendChild(corazon);
+
+        setTimeout(()=>{
+            corazon.remove();
+        },7000);
     }
+});
+</script>
 
-    setInterval(createHeart, 400);
-
-    // Función para revelar el mensaje
-    function revealTruth() {
-      document.getElementById('revealBtn').style.display = 'none';
-      document.getElementById('secretText').style.display = 'block';
-    }
-
-    // Ráfaga al tocar el avatar
-    function createHeartBurst(e) {
-      for (let i = 0; i < 6; i++) {
-        const heart = document.createElement('div');
-        heart.classList.add('floating-heart');
-        heart.innerHTML = '❤️';
-        heart.style.left = (e.clientX - 10 + (Math.random() * 40 - 20)) + 'px';
-        heart.style.top = (e.clientY - 10) + 'px';
-        heart.style.animationDuration = '2.5s';
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 2500);
-      }
-    }
-  </script>
 </body>
 </html>
-
